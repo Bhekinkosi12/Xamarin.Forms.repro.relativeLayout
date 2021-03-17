@@ -18,10 +18,15 @@ namespace ReproRelativeLayout
             InitializeComponent();
 
             var relativeLayout = new RelativeLayout { HorizontalOptions = LayoutOptions.FillAndExpand };
+            
             Content = relativeLayout;
+            
             var button = new Button { Text = "Hello GitHub - Click me" };
+            
             button.Clicked += (sender, e) => relativeLayout.Children.Clear();
+            
             relativeLayout.Children.Add(button, widthConstraint: Constraint.RelativeToParent(r => r.Width));
+            
             for (var i = 0; i < 20; i++)
             {
                 relativeLayout.Children.Add(new Button() { Text = "I do nothing" },
